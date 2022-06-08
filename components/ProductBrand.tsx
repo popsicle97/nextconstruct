@@ -54,7 +54,7 @@ export default function ProductBrand({ type = "mobile" || "browser" }) {
                     <List className="p-0">
                         {
                             brands.map((brand, index) => (
-                                <List.Item className="text-xs hover:bg-gray-50 h-6 flex place-items-center">
+                                <List.Item className="text-xs hover:bg-gray-50 h-6 flex place-items-center" key={index}>
                                     <p>{brand} {index}</p>
                                 </List.Item>
                             ))

@@ -5,7 +5,7 @@ import { ChevronDown, ChevronRight } from "tabler-icons-react";
 
 export default function ProductFilter() {
 
-    const [opened, setOpen] = useState(false);
+    const [opened, setOpen] = useState(true);
     const [value, setValue] = useState('latest');
 
     return (

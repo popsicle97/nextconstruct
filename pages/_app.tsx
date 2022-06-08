@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import SharedHeader from "../components/SharedHeader";
+import SharedLayout from "../components/SharedLayout";
 import { ModalsProvider } from "@mantine/modals";
 import { PageRoutes } from "../interfaces/PageRoutes";
 import { MantineProvider } from "@mantine/styles";
@@ -11,9 +11,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <MantineProvider>
       <ModalsProvider>
-        <SharedHeader>
+        <SharedLayout>
           <Component {...pageProps} />
-        </SharedHeader>
+        </SharedLayout>
       </ModalsProvider>
     </MantineProvider>
   );

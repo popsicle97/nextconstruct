@@ -1,8 +1,8 @@
-import { Title, Table, Button, ActionIcon, Tooltip, NumberInput, Divider, Group, Box, Text } from "@mantine/core";
-import React from "react";
-import { BrandWhatsapp, Minus } from "tabler-icons-react";
+import { Title, Table, Button, ActionIcon, Tooltip, NumberInput, Divider, Group, Box, Text, Modal, Stack } from "@mantine/core";
+import React, { useState } from "react";
+import { BrandWhatsapp, ClearAll, Minus } from "tabler-icons-react";
 
-const elements = [
+const cart = [
     { position: 6, mass: 12.011, symbol: 'C', name: 'Carbon' },
     { position: 7, mass: 14.007, symbol: 'N', name: 'Nitrogen' },
     { position: 39, mass: 88.906, symbol: 'Y', name: 'Yttrium' },
@@ -10,17 +10,25 @@ const elements = [
     { position: 58, mass: 140.12, symbol: 'Ce', name: 'Cerium' },
 ];
 
+
+const clearCart = () => {
+
+    return cart.length = 0;
+}
+
 export default function CheckoutTable() {
 
-    const rows = elements.map((element) => (
-        <tr key={element.name}>
-            <td width={"50%"}>{element.position}</td>
-            <td>{element.name}</td>
+    const [opened, setOpened] = useState(false);
+
+    const rows = cart.map((item) => (
+        <tr key={item.name} >
+            <td width={"50%"} >{item.position}</td>
+            <td>{item.name}</td>
             <td>
                 <NumberInput defaultValue={18} className="w-20" />
                 {/* {element.symbol} */}
             </td>
-            <td>{element.mass}</td>
+            <td>{item.mass}</td>
             <td width={20}>
                 <Tooltip label="Delete" withArrow>
                     <ActionIcon color="red">
@@ -32,9 +40,24 @@ export default function CheckoutTable() {
     ));
 
     return (
-        <>
-            <Title order={2}>Checkout</Title>
-            <Table >
+        <div >
+            <Modal opened={opened} onClose={() => setOpened(false)} title={<Title order={4}>Confirmation</Title>}>
+                <Stack>
+                    <Text>Confirm action to clear your cart completely?</Text>
+                    <Group position="right">
+                        <Button className="bg-red-500 hover:bg-red-400" onClick={() => setOpened(false)}>Cancel</Button>
+                        <Button className="bg-violet-500 hover:bg-violet-400" onClick={() => {
+                            clearCart();
+                            setOpened(false);
+                        }}>Confirm</Button>
+                    </Group>
+                </Stack>
+            </Modal>
+            <Title order={3}>Checkout</Title>
+            <Group position="right" className="flex flex-row">
+                <Button disabled={cart.length ? false : true} onClick={() => setOpened(true)} size="xs" className="bg-red-500 hover:bg-red-400 rounded-md" leftIcon={<ClearAll />}>Clear All</Button>
+            </Group>
+            <Table className="my-2">
                 <thead className="border">
                     <tr>
                         <th>Products</th>
@@ -44,14 +67,18 @@ export default function CheckoutTable() {
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>{rows}</tbody>
+                <tbody className="border">{rows}</tbody>
             </Table>
             <Divider label="End" labelPosition="center"></Divider>
-            <Group position="right">
-                <Button className="bg-green-500 hover:bg-green-400" leftIcon={<BrandWhatsapp />}>Checkout with WhatsApp</Button>
-                <Button className="bg-cyan-500 hover:bg-cyan-400">Checkout</Button>
+            <Group position="apart" className="my-3">
+                <div className="flex space-x-2">
+                </div>
+                <div className="flex space-x-2">
+                    <Button className="bg-green-500 hover:bg-green-400" leftIcon={<BrandWhatsapp />}>Checkout with WhatsApp</Button>
+                    <Button className="bg-violet-500 hover:bg-violet-400">Checkout</Button>
+                </div>
             </Group>
             <Divider ></Divider>
-        </>
+        </div>
     )
 }
