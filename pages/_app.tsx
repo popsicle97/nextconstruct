@@ -4,19 +4,29 @@ import SharedLayout from "../components/SharedLayout";
 import { ModalsProvider } from "@mantine/modals";
 import { PageRoutes } from "../interfaces/PageRoutes";
 import { MantineProvider } from "@mantine/styles";
+import { NextPage } from "next";
+import { ReactElement, ReactNode } from "react";
 
-
-
-function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <MantineProvider>
-      <ModalsProvider>
-        <SharedLayout>
-          <Component {...pageProps} />
-        </SharedLayout>
-      </ModalsProvider>
-    </MantineProvider>
-  );
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode
 }
 
-export default MyApp;
+export type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+}
+
+export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+
+  const getLayout = Component.getLayout ?? ((page) => page)
+
+  return getLayout(<Component {...pageProps} />)
+    
+
+      // {/* <SharedLayout> */ }
+      // {/* </SharedLayout> */ }
+
+        //  getLayout(<Component {...pageProps} />)
+
+    
+}
+

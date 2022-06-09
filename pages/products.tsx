@@ -1,28 +1,22 @@
 import {
-  Accordion,
   Box,
-  Button,
-  Center,
   Container,
-  Divider,
   Grid,
-  Group,
-  Input,
   MediaQuery,
-  SimpleGrid,
   Stack,
   TextInput,
   Title,
 } from "@mantine/core";
 import { NextPage } from "next";
-import React from "react";
+import React, { ReactElement } from "react";
 import { Search } from "tabler-icons-react";
 import OptionModal from "../components/modals/OptionModal";
 import ProductBrand from "../components/ProductBrand";
 import ProductCategory from "../components/ProductCategory";
 import ProductFilter from "../components/ProductFilter";
+import SharedLayout from "../components/SharedLayout";
 
-const Products: NextPage = () => {
+export default function Products(){
   return (
     <Container className="py-2 px-2">
       <Grid align="flex-start">
@@ -66,4 +60,11 @@ const Products: NextPage = () => {
   );
 };
 
-export default Products;
+
+Products.getLayout = function getLayout(page  : ReactElement) {
+  return (
+      <SharedLayout>
+        {page}
+      </SharedLayout>
+  )
+}

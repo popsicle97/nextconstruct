@@ -1,14 +1,25 @@
+import { Container } from "@mantine/core";
 import { NextPage } from "next";
+import { ReactElement } from "react";
+import AdminLayout from "../../components/AdminLayout";
 
-const AdminHome : NextPage = () => {
+export default function AdminHome() {
 
     return (
         <div>
-            Admin Page
+            <div className="shadow-md">
+                Home
+            </div>
         </div>
     )
 
 }
 
 
-export default AdminHome;
+AdminHome.getLayout = function getLayout(page: ReactElement) {
+    return (
+        <AdminLayout>
+            {page}
+        </AdminLayout>
+    )
+}
