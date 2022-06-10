@@ -1,3 +1,4 @@
+import { MantineProvider } from "@mantine/core";
 import React, { useState } from "react";
 import { PageRoutes } from "../interfaces/PageRoutes";
 import CustomFooter from "./CustomFooter";
@@ -17,12 +18,20 @@ const pageRoutes: Array<PageRoutes> = [
 export default function SharedLayout({ children }: { children: any }) {
 
   return (
-    <div className="w-full h-full">
-      <CustomHeader pageRoutes={pageRoutes}></CustomHeader>
-      <main>
-        {children}
-      </main>
-      <CustomFooter pageRoutes={pageRoutes}></CustomFooter>
-    </div>
+    <>
+      <MantineProvider theme={{
+        fontFamily: "Inter, sans-serif",
+        fontFamilyMonospace: "'Inter, sans-serif",
+        headings: { fontFamily: "Inter, sans-serif" },
+
+
+      }}>
+        <CustomHeader pageRoutes={pageRoutes}></CustomHeader>
+        <main>
+          {children}
+        </main>
+        <CustomFooter pageRoutes={pageRoutes}></CustomFooter>
+      </MantineProvider>
+    </>
   );
 }

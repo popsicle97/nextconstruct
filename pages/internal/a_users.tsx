@@ -13,7 +13,7 @@ export default function AdminUsers() {
         <div className="h-93PercHeight">
             <div className=" shadow-sm p-4 bg-white rounded-sm flex justify-between place-items-center">
                 <div>
-                    <Title order={2} className="text-slate-700">Add New User</Title>
+                    <Title order={3} className="text-slate-700">Add New Admin User</Title>
                     <Text size="sm" className="text-slate-400">Add a new admin user to manage internal data</Text>
                 </div>
                 <div>

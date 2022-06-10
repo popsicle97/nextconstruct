@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -12,6 +14,9 @@ module.exports = {
       minHeight: {
         "minHeight" : "100%"
       },
+      fontFamily : {
+        sans : ['Inter', ...defaultTheme.fontFamily.sans]
+      }
     },
   },
   plugins: [],

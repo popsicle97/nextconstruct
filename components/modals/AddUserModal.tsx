@@ -7,7 +7,7 @@ export default function AddUserModal() {
 
     const [opened, setOpened] = useState(false);
 
-    const modalTitle = (<Title order={3} className="text-slate-700">Add a Admin User</Title>);
+    const modalTitle = (<Title order={3} className="text-slate-700">Add an Admin User</Title>);
 
     const InputLabel = ({ label }: { label: string }): ReactElement => {
         return <Title className="text-slate-700" order={5}>{label}</Title>
@@ -22,6 +22,7 @@ export default function AddUserModal() {
                         <TextInput placeholder="Enter password" id="user-input-password" type="password" label={<InputLabel label="Password" />}></TextInput>
                         <TextInput placeholder="Enter confirm password" id="user-input-confirm-password" type="password" label={<InputLabel label="Confirm Password" />}></TextInput>
                         <TextInput placeholder="Enter username" id="user-input-email" label={<InputLabel label="Email" />}></TextInput>
+                        
                         <div className="flex flex-col space-y-2">
                             <Button className="bg-violet-500 hover:bg-violet-400" variant="filled">
                                 Add

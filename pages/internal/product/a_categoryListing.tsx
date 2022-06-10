@@ -10,7 +10,7 @@ export default function AdminCategoryListing() {
         <div className="h-93PercHeight ">
             <div className="shadow-sm p-4 bg-white rounded-sm flex justify-between place-items-center">
                 <div>
-                    <Title order={2} className="text-slate-700">Add New Category</Title>
+                    <Title order={3} className="text-slate-700">Add New Category</Title>
                     <Text size="sm" className="text-slate-400">Add a new category for a product</Text>
                 </div>
                 <div>
