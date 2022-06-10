@@ -1,16 +1,27 @@
-import { ActionIcon, Badge, Button, Container, Divider, List, Navbar, Title, Tooltip } from "@mantine/core";
+import { ActionIcon, Badge, Button, Container, Divider, List, Navbar, Tab, Tabs, Title, Tooltip } from "@mantine/core";
 import Link from "next/link";
+import React from "react";
 import { ReactElement } from "react";
-import { LayoutDashboard, ListDetails, Logout, Settings, UserCircle, Users } from "tabler-icons-react";
+import { ClipboardList, ClipboardText, LayoutDashboard, ListDetails, Logout, Settings, UserCircle, Users } from "tabler-icons-react";
 import { PageRoutes } from "../interfaces/PageRoutes";
 import LogoButton from "./LogoButton";
 
 const a_pageRoutes: Array<PageRoutes> = [
     { name: "Home", route: "/a_home", icon: (<LayoutDashboard />) },
-    { name: "Product Management", route: "/a_products", icon: <ListDetails /> },
-    { name: "User management", route: "/a_users", icon: <Users /> },
+    { name: "Product Management", route: "/product/a_productListing", icon: <ListDetails /> },
+    { name: "Brand Management", route: "/product/a_brandListing", icon: <ClipboardList /> },
+    { name: "Category Management", route: "/product/a_categoryListing", icon: <ClipboardText /> },
+    { name: "User Management", route: "/a_users", icon: <Users /> },
 ];
 
+const LinkButton = React.forwardRef(({ onClick, href, prop, icon }: { onClick: any, href: any, prop: string, icon?: ReactElement }, ref: React.LegacyRef<HTMLAnchorElement>) => {
+    return (
+        <div className="text-md text-slate-700 font-semibold flex place-items-center p-1 space-x-1 my-3">
+            {icon}
+            <a href={href} onClick={onClick} ref={ref}>{prop}</a>
+        </div>
+    )
+})
 
 export default function AdminLayout({ children }: { children: ReactElement }) {
 
@@ -19,11 +30,27 @@ export default function AdminLayout({ children }: { children: ReactElement }) {
     )
 
     const pageRoutes = a_pageRoutes.map((page: PageRoutes, index) => (
-        <Link href={`/internal${page.route}`} key={index}>
-            <List.Item className="flex place-items-center px-2 py-2 rounded-full hover:bg-green-500 hover:text-white hover:cursor-pointer text-slate-700" icon={page.icon ? page.icon : undefined}>
-                {page.name}
-            </List.Item>
-        </Link>
+        <li key={index} className="my-6">
+            <Link href={`/internal${page.route}`} passHref>
+                <LinkButton prop={page.name} onClick={() => { }} href={`/internal${page.route}`} icon={page.icon} />
+            </Link>
+            {/* 
+            {
+                page.subRoutes?.length ?
+                    <ul>
+                        {
+                            page.subRoutes.map((sub_page) => (
+                                <li>
+                                    <Link href={}>
+                                    </Link>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                    : <></>
+            } */}
+        </li>
+
     ))
 
     return (
@@ -39,9 +66,9 @@ export default function AdminLayout({ children }: { children: ReactElement }) {
                 </Navbar.Section>
                 <Navbar.Section grow pt={50}>
                     {/* <Divider label="Internal Use Only" labelPosition="center"></Divider> */}
-                    <List spacing={'xl'}>
+                    <ul>
                         {pageRoutes}
-                    </List>
+                    </ul>
                 </Navbar.Section>
                 <Navbar.Section>
                     <Divider></Divider>
