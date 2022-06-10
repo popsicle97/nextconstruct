@@ -1,5 +1,6 @@
 import { Title, Text, ActionIcon, TextInput, Tooltip, Table, Image, Divider, Select, MediaQuery, Box } from "@mantine/core"
 import { DateRangePicker } from "@mantine/dates";
+import Head from "next/head";
 import { ReactElement, useState } from "react"
 import { CalendarEvent, DotsVertical, Filter, ListDetails, Plus } from "tabler-icons-react"
 import AdminLayout from "../../../components/AdminLayout";
@@ -48,9 +49,12 @@ export default function AdminProductListing() {
 
     return (
         <div className="h-93PercHeight">
+            <Head>
+                <title>ANC Venture Sdn Bhd | Internal- Products</title>
+            </Head>
             <div className="shadow-sm p-4 bg-white rounded-sm flex justify-between place-items-center">
                 <div>
-                    <Title order={2} className="text-slate-700">Add New Product</Title>
+                    <Title order={3} className="text-slate-700">Add New Product</Title>
                     <Text size="sm" className="text-slate-400">Add a new product to the public store</Text>
                 </div>
                 <div>

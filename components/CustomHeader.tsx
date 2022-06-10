@@ -1,4 +1,4 @@
-import { Header, MediaQuery, Burger, Group, Drawer, Divider, Box, Image  } from "@mantine/core";
+import { Header, MediaQuery, Burger, Group, Drawer, Divider, Box, Image, Button } from "@mantine/core";
 import React, { useState } from "react";
 import CartButton from "./CartButton";
 import Link from "next/link"
@@ -10,13 +10,13 @@ import { PageRoutes } from "../interfaces/PageRoutes";
 import LogoButton from "./LogoButton";
 
 
-export default function CustomHeader({ pageRoutes } : { pageRoutes : Array<PageRoutes> }) {
+export default function CustomHeader({ pageRoutes }: { pageRoutes: Array<PageRoutes> }) {
 
     const [opened, setOpened] = useState(false);
 
     return (
-        <>
-            <Header height={80} p="xs" className="sticky"> 
+        <div>
+            <Header height={80} p="xs" className="sticky">
                 <Box
                     sx={{
                         display: "flex",
@@ -37,6 +37,7 @@ export default function CustomHeader({ pageRoutes } : { pageRoutes : Array<PageR
                     <LogoButton></LogoButton>
 
                     <MediaQuery smallerThan={"md"} styles={{ display: "none" }}>
+
                         <Box>
                             <HeaderLinks pageRoutes={pageRoutes}></HeaderLinks>
                         </Box>
@@ -65,6 +66,6 @@ export default function CustomHeader({ pageRoutes } : { pageRoutes : Array<PageR
             >
                 <DrawerLinks pageRoutes={pageRoutes}></DrawerLinks>
             </Drawer>
-        </>
+        </div>
     )
 }

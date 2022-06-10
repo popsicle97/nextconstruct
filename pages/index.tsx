@@ -1,3 +1,4 @@
+import { Button } from "@mantine/core";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
@@ -9,6 +10,7 @@ export default function Home()  {
   return (
     <div>
       Stuff
+      <Button variant="outline">Test</Button>
     </div>
   );
 };

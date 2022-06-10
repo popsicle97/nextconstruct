@@ -3,9 +3,10 @@ import type { AppProps } from "next/app";
 import SharedLayout from "../components/SharedLayout";
 import { ModalsProvider } from "@mantine/modals";
 import { PageRoutes } from "../interfaces/PageRoutes";
-import { MantineProvider } from "@mantine/styles";
+import { Global, MantineProvider } from "@mantine/styles";
 import { NextPage } from "next";
 import { ReactElement, ReactNode } from "react";
+import Head from "next/head";
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -19,14 +20,29 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   const getLayout = Component.getLayout ?? ((page) => page)
 
-  return getLayout(<Component {...pageProps} />)
-    
+  return getLayout(
+    <MantineProvider
+      theme={{
+        fontFamily: "Inter, sans-serif",
+        fontFamilyMonospace: "Inter, sans-serif",
+        headings: { fontFamily: "Inter, sans-serif" },
+      }}>
 
-      // {/* <SharedLayout> */ }
-      // {/* </SharedLayout> */ }
+   
+      <Head>
+        <title>ANC Venture Sdn Bhd</title>
 
-        //  getLayout(<Component {...pageProps} />)
+      </Head>
+      <Component {...pageProps} />
+    </MantineProvider>
+  )
 
-    
+
+  // {/* <SharedLayout> */ }
+  // {/* </SharedLayout> */ }
+
+  //  getLayout(<Component {...pageProps} />)
+
+
 }
 

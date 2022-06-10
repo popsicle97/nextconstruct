@@ -1,9 +1,8 @@
-import { Container, Divider, List, SimpleGrid, Stack, Title, Text, Group, ActionIcon, Button, Grid } from "@mantine/core";
+import { Container, Divider, List, SimpleGrid, Stack, Title, Text, Group, ActionIcon, Button, Grid, Footer } from "@mantine/core";
 import Link from "next/link";
 import React from "react";
-import { BrandWhatsapp, DeviceMobile, Mail, Map2, PhoneCall } from "tabler-icons-react";
+import { DeviceMobile, Mail, Map2 } from "tabler-icons-react";
 import { PageRoutes } from "../interfaces/PageRoutes";
-import LogoButton from "./LogoButton";
 
 const businessHours = [
     { day: "Mon", time: "8:30 AM - 5:30 PM" },
@@ -26,7 +25,7 @@ const businessHours = [
 export default function CustomFooter({ pageRoutes }: { pageRoutes: Array<PageRoutes> }) {
 
     return (
-        <footer className="bg-gray-50 border-t pt-2">
+        <Footer className="bg-gray-50 border-t pt-2 pb-2" height={"100%"}>
             <Divider className="my-6" labelPosition="center" size={0} label={
                 <>
                     {/* <LogoButton /> */}
@@ -39,13 +38,15 @@ export default function CustomFooter({ pageRoutes }: { pageRoutes: Array<PageRou
 
                 <SimpleGrid cols={3} spacing={50}>
                     <Stack>
-                        <Title order={5} >OVERVIEW</Title>
-                        <List spacing={4} size="xs">
+                        <Title order={5} >Overview</Title>
+                        <List spacing={4} size="sm">
                             {
                                 pageRoutes.map((page: PageRoutes, index) => (
                                     <List.Item key={index}>
                                         <Link href={page.route} >
-                                            {page.name}
+                                            <a>
+                                                {page.name}
+                                            </a>
                                         </Link>
                                     </List.Item>
                                 ))
@@ -53,13 +54,13 @@ export default function CustomFooter({ pageRoutes }: { pageRoutes: Array<PageRou
                         </List>
                     </Stack>
                     <Stack>
-                        <Title order={5}>BUSINESS HOURS</Title>
+                        <Title order={5}>Business Hours</Title>
                         <SimpleGrid cols={2} spacing={1} className="w-45">
                             {
                                 businessHours.map((data, index) => (
                                     <div key={index}>
-                                        <Text size={'xs'} weight={500} style={{ width: "30px" }}>
-                                        {data.day}
+                                        <Text size={'sm'} weight={500}>
+                                            {data.day}
                                         </Text>
                                         <Text size={'xs'} >
                                             {data.time}
@@ -68,22 +69,11 @@ export default function CustomFooter({ pageRoutes }: { pageRoutes: Array<PageRou
                                 ))
                             }
                         </SimpleGrid>
-                        {/* <Group>
-                            <ActionIcon color="green">
-                                <BrandWhatsapp></BrandWhatsapp>
-                            </ActionIcon>
-                            <ActionIcon color="gray">
-                                <PhoneCall></PhoneCall>
-                            </ActionIcon>
-                        </Group>
-                        <Text size="xs">04-398 2040</Text>
-                        <Text size="xs">012-418 6040</Text>
-                        <Text size="xs">012-438 0570</Text> */}
                     </Stack>
                     <Stack>
                         <Group>
                             <Map2></Map2>
-                            <Title order={5}>WHERE WE ARE</Title>
+                            <Title order={5}>Where we are</Title>
                         </Group>
                         <Text size="xs">
                             28, Jalan Kikik
@@ -93,14 +83,14 @@ export default function CustomFooter({ pageRoutes }: { pageRoutes: Array<PageRou
                             Malaysia
                         </Text>
                         <Link
-                            href="https://www.google.com/maps/dir/ANC+Venture+Sdn.Bhd/@5.3927762,100.3161228,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x304ac428d8dcc67f:0xfbbda0786b935b2d!2m2!1d100.386166!2d5.3927672">
-                            <Button className="bg-violet-500 hover:bg-violet-400">Get direction</Button>
+                            href="https://www.google.com/maps/dir/ANC+Venture+Sdn.Bhd/@5.3927762,100.3161228,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x304ac428d8dcc67f:0xfbbda0786b935b2d!2m2!1d100.386166!2d5.3927672" passHref>
+                            <a className="rounded-md p-2 text-center bg-violet-500 text-white shadow-md">Get direction</a>
                         </Link>
                     </Stack>
                 </SimpleGrid>
                 <Divider className="mt-5 mb-2"></Divider>
                 <Group>
-                    <Title order={5}>CONTACT US</Title>
+                    <Title order={5}>Contact Us :</Title>
                     <Button size="xs" variant="subtle" color="dark" leftIcon={<DeviceMobile />}>
                         04-398 2040
                     </Button>
@@ -115,7 +105,7 @@ export default function CustomFooter({ pageRoutes }: { pageRoutes: Array<PageRou
                     </Button>
                 </Group>
             </Container>
-        </footer>
+        </Footer>
     )
 
 }

@@ -11,12 +11,8 @@ export default function HeaderLinks({
   return (
     <Group spacing={"lg"}>
       {pageRoutes.map((page: PageRoutes, index: number) => (
-        <Link href={page.route} key={index}>
-          <UnstyledButton className="hover:border p-1 cursor-pointer" sx={{ '&:hover': {
-              border : '1px solid #e5e7eb'
-          } }}>
-            <Text transform="uppercase" weight={350}>{page.name}</Text>
-          </UnstyledButton>
+        <Link href={page.route} key={index} passHref>
+          <a>{page.name}</a>
         </Link>
       ))}
     </Group>

@@ -1,14 +1,10 @@
 import {
-  InputWrapper,
-  Input,
+
   Stack,
   Button,
-  Anchor,
   TextInput,
 } from "@mantine/core";
-import { useModals } from "@mantine/modals";
-import React, { ReactNode } from "react";
-import ForgotPassForm from "./ForgotPassForm";
+import { ReactNode } from "react";
 
 export default function LoginForm({ children }: { children: ReactNode }) {
   return (
@@ -29,9 +25,9 @@ export default function LoginForm({ children }: { children: ReactNode }) {
         ></TextInput>
         <div>{children}</div>
         {/* <ForgotPassForm></ForgotPassForm> */}
-        <Button fullWidth className="bg-violet-500 hover:bg-violet-300">
+        <button className="bg-violet-500 hover:bg-violet-400 text-sm font-normal p-2 rounded-2xl text-gray-50 active:translate-y-0.5">
           Sign in
-        </Button>
+        </button>
       </Stack>
     </form>
   );
