@@ -19,9 +19,8 @@ import SharedLayout from "../components/SharedLayout";
 
 export default function Products() {
   return (
-    <div>
- 
-      <Container className="py-2 px-2">
+    <div className="h-full">
+      <Container className=" px-2">
         <Grid align="flex-start">
           <Grid.Col span={3} lg={3}>
             <MediaQuery smallerThan="md" styles={{ display: "none" }}>

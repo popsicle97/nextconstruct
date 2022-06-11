@@ -27,7 +27,7 @@ export default function SharedLayout({ children }: { children: any }) {
 
       }}>
         <CustomHeader pageRoutes={pageRoutes}></CustomHeader>
-        <main className="bg-slate-50 m-0">
+        <main >
           {children}
         </main>
         <CustomFooter pageRoutes={pageRoutes}></CustomFooter>

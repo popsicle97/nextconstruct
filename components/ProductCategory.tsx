@@ -52,12 +52,41 @@ export default function ProductCategory({ type = "mobile" || "browser" }) {
                             fontSize: "12px",
                             width: "100%"
                         }
-                    }} variant="light" color="gray" rightIcon={opened ? <ChevronDown size={18}/> : <ChevronRight size={18}/>}
+                    }} variant="light" color="gray" rightIcon={opened ? <ChevronDown size={18} /> : <ChevronRight size={18} />}
                         compact>Show Categories</Button> </>}
                         labelPosition="center" style={{ width: "100%" }}></Divider>
                 </Box>
-                <Collapse in={opened}>
+                <Collapse in={opened} className="border border-b-0 border-t-0 p-2">
                     <List>
+                        <List.Item className="text-xs">
+                            <p>Item 1</p>
+                        </List.Item>
+                        <List.Item className="text-xs">
+                            <p>Item 1</p>
+                        </List.Item>
+                        <List.Item className="text-xs">
+                            <p>Item 1</p>
+                        </List.Item>
+                        <List.Item className="text-xs">
+                            <p>Item 1</p>
+                        </List.Item> <List.Item className="text-xs">
+                            <p>Item 1</p>
+                        </List.Item> <List.Item className="text-xs">
+                            <p>Item 1</p>
+                        </List.Item> <List.Item className="text-xs">
+                            <p>Item 1</p>
+                        </List.Item> <List.Item className="text-xs">
+                            <p>Item 1</p>
+                        </List.Item> <List.Item className="text-xs">
+                            <p>Item 1</p>
+                        </List.Item> <List.Item className="text-xs">
+                            <p>Item 1</p>
+                        </List.Item> <List.Item className="text-xs">
+                            <p>Item 1</p>
+                        </List.Item>
+                        <List.Item className="text-xs">
+                            <p>Item 1</p>
+                        </List.Item>
                         <List.Item className="text-xs">
                             <p>Item 1</p>
                         </List.Item>
