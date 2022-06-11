@@ -32,9 +32,9 @@ export default function RegisterForm() {
           id="register-phoneno-input"
           required
         ></TextInput>
-        <Button fullWidth className="bg-violet-500 hover:bg-violet-300">
+        <button className="bg-violet-500 hover:bg-violet-300 p-2 text-white rounded-2xl font-normal text-sm" type="submit">
           Register
-        </Button>
+        </button>
       </Stack>
     </form>
   );

@@ -70,12 +70,13 @@ export default function CheckoutTable() {
                 <tbody className="border">{rows}</tbody>
             </Table>
             <Divider label="End" labelPosition="center"></Divider>
-            <Group position="apart" className="my-3">
+            <Group position="apart" className="my-2">
                 <div className="flex space-x-2">
                 </div>
                 <div className="flex space-x-2">
-                    <Button className="bg-green-500 hover:bg-green-400" leftIcon={<BrandWhatsapp />}>Checkout with WhatsApp</Button>
-                    <Button className="bg-violet-500 hover:bg-violet-400">Checkout</Button>
+                    <button className="bg-green-500 hover:bg-green-400 text-white p-2 flex flex-row text-sm rounded-md shadow-md place-items-center" >
+                        <BrandWhatsapp className="mr-2" />Checkout with WhatsApp</button>
+                    <button className="bg-violet-500 hover:bg-violet-400 text-white p-2 text-sm rounded-md shadow-md">Checkout</button>
                 </div>
             </Group>
             <Divider ></Divider>
