@@ -6,6 +6,7 @@ import {
 
   Modal,
   Tabs,
+  Title,
 } from "@mantine/core";
 import React, { useState } from "react";
 import {
@@ -22,6 +23,8 @@ export default function LoginModal() {
   const [opened, setOpened] = useState(false);
   const [activeTab, setActiveTab] = useState(1);
 
+  
+
   return (
     <>
       <Modal
@@ -33,14 +36,14 @@ export default function LoginModal() {
         title={
           <div className="flex flex-row gap-2">
             {
-            activeTab == 0 ? (<><Login spacing={"xs"} /> <h2>Sign In</h2></>) 
-            : activeTab == 1 ? (<><ClipboardList spacing={"xs"} /> <h2>Register</h2></> )
-            : (<><QuestionMark spacing={"xs"} /> <h2>Forgot Password</h2></>)
+              activeTab == 0 ? (<><Login spacing={"xs"} /> <Title order={4}>Sign In</Title></>)
+                : activeTab == 1 ? (<><ClipboardList spacing={"xs"} /> <Title order={4}>Register</Title></>)
+                  : (<><QuestionMark spacing={"xs"} /> <Title order={4}>Forgot Password</Title></>)
             }
           </div>
         }
       >
-        <Tabs active={activeTab} onTabChange={setActiveTab} color="violet">
+        <Tabs active={activeTab} onTabChange={setActiveTab} color="violet" >
           <Tabs.Tab label="Sign in" icon={<Login spacing={"xs"} />}>
             <LoginForm>
               <Anchor className="text-sm" onClick={() => setActiveTab(3)}>
@@ -48,26 +51,20 @@ export default function LoginModal() {
               </Anchor>
             </LoginForm>
           </Tabs.Tab>
-          <Tabs.Tab 
+          <Tabs.Tab
             label="Register"
             icon={<ClipboardList spacing={"xs"} />}
           >
-             <RegisterForm></RegisterForm>
+            <RegisterForm></RegisterForm>
           </Tabs.Tab>
           <Tabs.Tab label="Forgot password" hidden>
             <ForgotPassForm></ForgotPassForm>
           </Tabs.Tab>
         </Tabs>
 
-        <Button
-          variant="outline"
-          className="mt-2"
-          onClick={() => setOpened(false)}
-          fullWidth
-          color="dark"
-        >
+        <button className="mt-2 bg-slate-200 w-full p-2 rounded-2xl text-sm text-normal hover:bg-slate-100" onClick={() => setOpened(false)} type="submit">
           Close
-        </Button>
+        </button>
       </Modal>
 
       <Group position="center" className="border-l pl-2">

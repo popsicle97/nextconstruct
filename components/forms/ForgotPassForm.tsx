@@ -15,6 +15,7 @@ export default function ForgotPassForm() {
           id="email-input"
           required
         ></TextInput>
+        <button className="font-normal text-sm p-2 bg-violet-500 rounded-2xl text-white hover:bg-violet-400">Send email</button>
       </Stack>
     </form>
   );

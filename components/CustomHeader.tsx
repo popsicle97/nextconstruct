@@ -38,11 +38,11 @@ export default function CustomHeader({ pageRoutes }: { pageRoutes: Array<PageRou
 
                     <MediaQuery smallerThan={"md"} styles={{ display: "none" }}>
 
-                        <Box>
+                        <Box className="flex justify-evenly ">
                             <HeaderLinks pageRoutes={pageRoutes}></HeaderLinks>
                         </Box>
                     </MediaQuery>
-
+ 
                     <Group>
                         <CartButton></CartButton>
                         <LoginModal></LoginModal>
