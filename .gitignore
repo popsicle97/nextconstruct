@@ -1,4 +1,5 @@
 
-.next/cache/webpack/client-development/17.pack
-.next/cache/webpack/client-development/5.pack
+.next/cache/webpack/client-development/
+.next/cache/webpack/server-development/
+.next/cache/webpack/client-development-fallback/
 node_modules/
