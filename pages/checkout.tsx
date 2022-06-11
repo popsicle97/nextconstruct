@@ -13,7 +13,7 @@ export default function Checkout() {
 
 
     return (
-        <Container className="py-2 px-2">
+        <Container >
             <Stack>
                 <CheckoutTable></CheckoutTable>
            

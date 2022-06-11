@@ -25,7 +25,7 @@ const businessHours = [
 export default function CustomFooter({ pageRoutes }: { pageRoutes: Array<PageRoutes> }) {
 
     return (
-        <Footer className="bg-gray-50 border-t pt-2 pb-2" height={"100%"}>
+        <footer className="bg-gray-50 border-t pt-2 pb-2">
             <Divider className="my-6" labelPosition="center" size={0} label={
                 <>
                     {/* <LogoButton /> */}
@@ -84,7 +84,7 @@ export default function CustomFooter({ pageRoutes }: { pageRoutes: Array<PageRou
                         </Text>
                         <Link
                             href="https://www.google.com/maps/dir/ANC+Venture+Sdn.Bhd/@5.3927762,100.3161228,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x304ac428d8dcc67f:0xfbbda0786b935b2d!2m2!1d100.386166!2d5.3927672" passHref>
-                            <a className="rounded-md p-2 text-center bg-violet-500 text-white shadow-md">Get direction</a>
+                            <a className="rounded-md p-2 text-center bg-slate-600  text-white shadow-md">Get direction</a>
                         </Link>
                     </Stack>
                 </SimpleGrid>
@@ -105,7 +105,7 @@ export default function CustomFooter({ pageRoutes }: { pageRoutes: Array<PageRou
                     </Button>
                 </Group>
             </Container>
-        </Footer>
+        </footer>
     )
 
 }

@@ -16,7 +16,7 @@ export default function CustomHeader({ pageRoutes }: { pageRoutes: Array<PageRou
 
     return (
         <div>
-            <Header height={80} p="xs" className="sticky">
+            <Header height={80} p="xs" >
                 <Box
                     sx={{
                         display: "flex",

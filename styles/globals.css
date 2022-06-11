@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Poppins:wght@300&display=swap');
 
 html,
 body {
@@ -15,8 +14,7 @@ body {
 
 main {
     min-height : calc(100vh - 350px);
-    margin-bottom : 1.5em;
-    padding-top : 1.5em;
+
 }
 
 footer {
